@@ -1,0 +1,70 @@
+* {font-family:'Tahoma', san-serif,tahoma,arial;}
+html, body {margin:35px 0 150px 0;padding:0;overflow-x: scroll;}
+* a {cursor:pointer;}
+.header {margin:0;padding:0; position:fixed; top:0px;left:0px;right:0px;}
+.header .h2 {margin:0px;padding:0px;background:#006ce5;border-bottom: 1px solid #3091ff;}
+.header table {height:40px;}
+.header .h2 h2 {font-size:21px;color:#eee;font-family:'Tahoma',arial;font-weight:400;margin:0px;padding:0px;}
+.header .h2 b {font-size:21px;color:#eee;font-family:'Tahoma',arial;font-weight:700;margin:0px;padding:0px;}
+.header .h2 .org {text-align:right;font-style: italic;font-size:12px;padding:0 5px 0 0;color:#eee;}
+.header .menu {margin:0;padding:1px 3px;border-bottom:1px solid #999;background:#043b79;color:#fff;font-size:11px;}
+.header .menu a {margin:5px 2px;padding:1px 1px;text-decoration:none;color:#fff;font-weight:100;font-size:14px;}
+.header .menu a:hover {background:#11519a;}
+.header .menu .akun {float:right;text-align:right;font-style: italic;font-size:10px;padding:5px;color:#fff;}
+.header .menu .akun a {font-size:10px;}
+.content {margin:0px 5px 0px 5px;padding:0px;}
+.content .h2 {font-size:17px;margin:2px 0px;padding:2px 0px;}
+.content .pok p {padding:0;margin:4px 0;}
+.content .pok a, .content .pok * a {cursor: pointer; color:blue;}
+.content .pok div {margin:0 0 0 20px;}
+.content .pok img{height:14px;}
+.content .pok table tr td {border-bottom:1px solid #ccc;}
+.content form input, .content form textarea {margin:2px 0 0 0; padding:4px;border-radius:4px;border:1px solid #aaa;}
+.content *{font-size:13px;}
+
+.content .center {font-size:17px;margin:2px 0px;padding:2px 0px;text-align:center;}
+.content .right {font-size:14px;margin:2px 0px;padding:2px 0px;text-align:right;}
+.table {border-left:1px solid #ccc; border-top:1px solid #ccc; border-spacing: 0px; border-collapse: separate;}
+.table .dibaca0 * {color:#bf3c3c;}
+.table tr td,table tr th {border-right:1px solid #ccc; border-bottom:1px solid #ccc; padding:3px;}
+.table tr th {font-size:14px;font-weight:400;color:#ffffff;background:#006ce5;}
+.table tr td {font-size:13px;}
+.table tr td * img{height:16px;}
+.table thead tr {background:#fff;color:#333;}
+.table tfoot tr {background:#ddd;}
+.table tfoot tr:hover {background:#fff;}
+.table thead tr:hover {background:#eee;color:#222;}
+.table tbody tr:hover {background:#eee; color:#000;}
+.table thead tr:hover, table tbody tr:hover, .table tfoot tr:hover, .header .h2 img:hover {
+-webkit-transition: all 0.8s ease-out;
+-moz-transition: all 0.4s ease-out;
+-o-transition: all 0.4s ease-out;
+transition: all 0.4s ease-out;}
+.table .topborder td {border-top:1px solid #ccc;}
+.small * {font-size:10px;}
+
+.fix_bottom {    position: fixed; bottom:0px;left:0px;right:0px;background:#eee;padding:5px;border-top:1px solid #ccc;}
+
+* input{
+    padding: 2px 5px; border:1px solid #aaa;border-radius:3px;
+}
+* select{
+   border:1px solid #aaa;border-radius:3px;
+}
+ * input:hover{
+    border:1px solid blue;
+}
+.gray {color:#fff;}
+
+.red {color:#8f0b0b;}
+.yellow {color:#717201;}
+.green {color:#017223;}
+
+.red_all * {background:#ff9d9d;}
+.yellow_all * {background:#fff771;}
+.green_all * {background:#83ff80;}
+.black_all * {background:#ddd;}
+.white_all * {background:#fff;}
+
+.log_data {padding:10px;font-size:13px;}
+.log_data * {font-size:11px;}

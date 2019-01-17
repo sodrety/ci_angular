@@ -1,0 +1,39 @@
+info it worked if it ends with ok
+verbose cli [ 'node',
+verbose cli   '/usr/bin/npm',
+verbose cli   'install',
+verbose cli   '@fancyapps/fancybox',
+verbose cli   '--save' ]
+info using npm@1.1.4
+info using node@v0.6.12
+verbose config file /home/intranet/.npmrc
+verbose config file /usr/etc/npmrc
+verbose config file /usr/share/npm/npmrc
+verbose cache add [ '@fancyapps/fancybox', null ]
+silly cache add: name, spec, args [ undefined,
+silly cache add: name, spec, args   '@fancyapps/fancybox',
+silly cache add: name, spec, args   [ '@fancyapps/fancybox', null ] ]
+verbose parsed url { pathname: '@fancyapps/fancybox',
+verbose parsed url   path: '@fancyapps/fancybox',
+verbose parsed url   href: '@fancyapps/fancybox' }
+silly cache add: name, spec, args [ '', 'fancyapps/fancybox', [ '', 'fancyapps/fancybox' ] ]
+verbose parsed url { pathname: 'fancyapps/fancybox',
+verbose parsed url   path: 'fancyapps/fancybox',
+verbose parsed url   href: 'fancyapps/fancybox' }
+ERR! Could not install: fancyapps/fancybox
+ERR! Error: ENOENT, no such file or directory 'fancyapps/fancybox'
+ERR! You may report this log at:
+ERR!     <http://bugs.debian.org/npm>
+ERR! or use
+ERR!     reportbug --attach /home/intranet/Public/www/prioqnet/npm-debug.log npm
+ERR! 
+ERR! System Linux 3.2.0-58-generic
+ERR! command "node" "/usr/bin/npm" "install" "@fancyapps/fancybox" "--save"
+ERR! cwd /home/intranet/Public/www/prioqnet
+ERR! node -v v0.6.12
+ERR! npm -v 1.1.4
+ERR! path fancyapps/fancybox
+ERR! code ENOENT
+ERR! message ENOENT, no such file or directory 'fancyapps/fancybox'
+ERR! errno {}
+verbose exit [ 1, true ]

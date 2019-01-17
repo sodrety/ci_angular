@@ -1,0 +1,54 @@
+<?php
+
+function sla_fisik(){
+$db = new database();
+$db->connect(app_db());
+if ($_POST['tgl']=="") {$tgl=$tglm=today();} else {$tgl=$_POST['tgl'];$tglm=$_POST['tglm'];}
+$n=0;
+echo "
+<form method=post>
+Lokasi: <select id='select1' name=lokasi ><option>".$_POST['lokasi']."</option><option></option>".lokasi_opt()."
+    </select> Tgl: <input type=date value='".$tglm."' name='tglm'> s.d <input type=date value='".$tgl."' name='tgl'>
+<input type=submit name=cari value=Cari style='padding:3px;'></form>
+";
+$id_lokasi=app_baca("lokasi","lokasi='".$_POST['lokasi']."'","id_lokasi");
+
+if ($_POST['simpan']=="Simpan") {
+$ada=app_baca("sla_fisik","no_reg='".$_POST['no_reg']."'","no_reg");
+$q="'".$id_lokasi."', '".$_POST['no_reg']."', '".$_POST['sampling']."', '".$_POST['total']."', '".$_POST['feet']."', '".$_POST['status']."', '".$_POST['dp1']." ".$_POST['dp1t']."', '".$_POST['tgl']." ".$_POST['tglt']."', '".now()."', '".user_id()."'";
+app_replace("sla_fisik",$q);
+}
+if ($id_lokasi!="") {$whl="and lokasi.id_lokasi='".$id_lokasi."'"; }
+$query = "SELECT * FROM sla_fisik JOIN lokasi ON sla_fisik.id_lokasi=lokasi.id_lokasi WHERE kt9<='".$tgl."%' and kt9>='".$tglm."%' order by pada desc";
+$results = $db->get_results( $query );
+
+if ($id_lokasi!="" and strlen($tgl)=="10") {$a="<b><a onclick=\"requestContent('ajx/f_sla_fisik.php?tgl=".$tgl."&lokasi=".$_POST['lokasi']."','formdiv')\">Tambah</a></b>";}
+echo "
+<div id=formdiv>$a</div>
+<table class='table' width=100% id=example10>
+
+<thead>
+<tr><th>NO</th><th>LOKASI</th><th>NO DOKUMEN</th><th>SAMPLING</th><th>TOTAL</th><th>STATUS</th><th>WAKTU AWAL (DP-1)</th><th>WAKTU NSW (KT-9)</th><th>DURASI (MENIT)</th></tr>
+</thead>
+
+<tbody>";
+
+
+foreach( $results as $data )
+{
+	$n++;
+$du=durasi($data['dp1'],$data['kt9']);
+echo "<tr valign='top' align=center><td>$n</td><td>".$data['lokasi']."</td><td>".$data['no_reg']."</td><td>".$data['sampling']."</td><td>".$data['total']."</td><td>".$data['status']."</td><td>".$data['dp1']."</td><td>".$data['kt9']."</td><td>".$du."</td></tr>";
+$sam+=$data['sampling'];
+$to+=$du;
+$kon+=$data['total'];
+if ($du<=(24*60)) {$cap+=1;}
+}
+echo "</tbody><tfoot>
+<tr valign='top' align=center><td></td><td></td><td></td><td><b>".rp($sam)."</b></td><td><b>".rp($kon)."</b></td><td></td><td></td><td></td><td><b>".des($to/$n)."</b></td></tr>
+</tfoot>
+</table>
+Capaian SLA : <b>".des(($cap/$n)*100)." %</b>";
+}
+
+
